@@ -8,10 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'mona-app';
   name="";
-  
-  loadedFeature = 'Recipe';
-  onNavigate(feature:string){
-      this.loadedFeature = feature;
-      console.log("from app ", this.loadedFeature )
-  }
+
 }

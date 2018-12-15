@@ -23,7 +23,6 @@ export class NavBarComponent implements OnInit {
    modalAction.actionType = ActionType.add;
    modalAction.btnText =  'add';
    modalAction.openModalFlag = true;
-     console.log("test from navbar") ;
      this.eventToOpenModal.emit(modalAction);
    }
 }

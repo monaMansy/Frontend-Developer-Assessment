@@ -28,12 +28,8 @@ export class userslistComponent implements OnInit {
     
   }
   public getUsers() {
-    console.log(this.users);
     this.usersActionService.GetAll().subscribe( (res:any) => {
-      console.log(res);
       this.users = res.data;
-      // data contains actual array of users
-      console.log(this.users);
     });
    
   }
@@ -59,8 +55,6 @@ export class userslistComponent implements OnInit {
   
  public toggleModal($event){ 
     this.modalDetails = $event;
-
-    console.log("msg" ,this.modalDetails)
   }
 
 

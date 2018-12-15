@@ -8,7 +8,6 @@ export class loggingService{
 
  }
  login(username: string, password: string) {
-     console.log("from service")
     return this.http.post<any>(`https://reqres.in/api/login`, { username: username, password: password })
         .pipe(map(user => {
             // login successful if there's a jwt token in the response
@@ -16,7 +15,6 @@ export class loggingService{
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('currentUser', JSON.stringify(user));
             }
-            console.log("user",user)
             return user;
         }));
       

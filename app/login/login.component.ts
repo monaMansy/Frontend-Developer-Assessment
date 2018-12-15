@@ -54,12 +54,8 @@ export class LoginComponent implements OnInit {
                      this.router.navigate(['/users']);
                  },
                  error => {
-                     console.log("auth error")
                  });
         
-  //  function gotoProfile(){
-  //   console.log("test");
-  //    this.router.navigate(['/users'])
-  // }
+
 }
 }

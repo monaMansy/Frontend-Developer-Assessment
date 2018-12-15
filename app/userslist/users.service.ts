@@ -19,10 +19,7 @@ export class usersActionService{
     }
 
     AddUser(user){
-        console.log("user",user)
         return this.http.post(`https://reqres.in/api/register`,user);
-       
-
     }
 
     EditUser(userId, payload){

@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-expand-lg navbar-white border-bottom bg-white">
-    <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span><a class="navbar-brand" href="#"><h3>Spaces</h3></a>
+  <i class="fa fa-adjust"></i><a class="navbar-brand" href="#"><h3>Spaces</h3></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -8,10 +8,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav m-auto">
       <li class="nav-item active">
-        <a class="nav-link" (click)="onSelect('Recipe')">Recipes<span class="sr-only">(current)</span></a>
+        <a class="nav-link" >Home<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link"  (click)="onSelect('ShoppingList')">ShoppingList</a>
+        <a class="nav-link"  >About</a>
       </li>
       <li class="nav-item">
         <a class="nav-link"  >contact</a>
@@ -19,7 +19,7 @@
     
      
     </ul>
-    <button class="btn standardbtn  btn-round-sm ">log in</button>
+    <button class="btn standardbtn  btn-round-sm " (click)="login()">log out</button>
   </div>
 </nav>
 

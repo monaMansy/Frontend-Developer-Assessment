@@ -1,4 +1,6 @@
 import { Component, OnInit ,EventEmitter ,Output } from '@angular/core';
+import { Router ,ActivatedRoute } from '@angular/router';
+
 
 
 @Component({
@@ -8,16 +10,16 @@ import { Component, OnInit ,EventEmitter ,Output } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
- @Output() selectedFeature = new EventEmitter<string>();
- 
-  constructor() { }
 
-  onSelect(feature:string){
-       this.selectedFeature.emit(feature);
-       console.log("ss",feature)
-  }
+ 
+  constructor(private router:Router) { }
+
+ 
+  
 
   ngOnInit() {
   }
-
+login(){
+  this.router.navigate(['/']);
+}
 }

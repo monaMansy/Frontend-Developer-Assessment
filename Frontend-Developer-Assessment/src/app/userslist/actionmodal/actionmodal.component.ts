@@ -6,6 +6,8 @@ import { Content } from '@angular/compiler/src/render3/r3_ast';
 import {usersActionService} from '../users.service';
 import { ModalDetails, ActionType } from 'src/app/shared/modalDetails';
 import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
+import {AlertService} from '../../alert/alert.service'
+
 
 
 
@@ -26,7 +28,8 @@ export class ActionmodalComponent implements OnInit{
      private modalService: NgbModal ,
      private usersActionService:usersActionService ,
       private formBuilder: FormBuilder,
-    private cdRef: ChangeDetectorRef) {
+    private cdRef: ChangeDetectorRef,
+  private AlertService:AlertService) {
     // customize default values of modals used by this component tree
      config.backdrop= 'static';
      config.keyboard = false;
@@ -77,13 +80,13 @@ export class ActionmodalComponent implements OnInit{
         job: this.form.controls.jobtitle.value
       }
       this.editSelectedUser(formValues);
-    } else {
+    } else if(this.modalDetails.actionType === ActionType.delete) {
       this.deleteSelectedUser();
     }
   }
 
   deleteSelectedUser() {
-    this.usersActionService.DeleteUser(this.modalDetails.userDetails.id).subscribe(res=>{console.log("delete",res)})
+    this.usersActionService.DeleteUser(this.modalDetails.userDetails.id).subscribe(res=>{ this.AlertService.success("Deleted successful",true);})
   }
   editSelectedUser(updatedValue) {
 

@@ -1,13 +1,12 @@
 <app-nav-bar (eventToOpenModal)="toggleModal($event)" ></app-nav-bar>
 
  <app-actionmodal   [modalDetails]="modalDetails"></app-actionmodal>
- 
+
 <div class="row">
     <div class="container">
         <div class="panel panel-default">
             <div class="card">
         <table class="table table-hover table-responsive-sm ">
-        
         <tr   >
         
         <td>First Name</td>
@@ -18,7 +17,7 @@
         <tbody>
         <tr class="table-light" *ngFor="let user of users" >
         
-        <td> <span><img src="{{user.avatar}}" alt="Avatar" style="border-radius:50%" width=6%></span>  {{ user.first_name}}  {{user.last_name}}</td>
+        <td> <span><img src="{{user.avatar}}" alt="Avatar" class="avatarImg"></span>  {{ user.first_name}}  {{user.last_name}}</td>
         
         <td> 
          

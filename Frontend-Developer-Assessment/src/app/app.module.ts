@@ -13,6 +13,8 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { ActionmodalComponent } from './userslist/actionmodal/actionmodal.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AlertComponent } from './alert/alert.component';
+import { AlertService } from 'src/app/alert/alert.service';
 
 
 const appRoutes:Routes =[
@@ -25,7 +27,7 @@ const appRoutes:Routes =[
     AppComponent,
     HeaderComponent,
     userslistComponent,
-    LoginComponent, NavBarComponent, ActionmodalComponent   
+    LoginComponent, NavBarComponent, ActionmodalComponent, AlertComponent   
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,7 @@ const appRoutes:Routes =[
   entryComponents: [
    
 ],
-  providers: [],
+  providers: [ AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

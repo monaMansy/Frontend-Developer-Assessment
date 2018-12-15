@@ -15,7 +15,7 @@ import { ModalDetails, ActionType } from 'src/app/shared/modalDetails';
 export class userslistComponent implements OnInit {
   res:any;
   modalDetails:ModalDetails = new ModalDetails();
-  
+  messageDetails;
    
     users:any = []; // to prevent ngFor to throw while we wait for API to return data
   constructor(private http: HttpClient , private usersActionService:usersActionService) {

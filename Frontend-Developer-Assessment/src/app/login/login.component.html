@@ -1,0 +1,51 @@
+<!-- <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="./assets/imgs/bg-login.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div> -->
+
+
+<section>
+    <div class="container col-md-8  ">
+      <div class="card mt-3 mb-5 mx-5" >
+        <div class="row ">
+          <div class="col-md-6 ">
+              <img src="./assets/imgs/bg-login.jpg" class="w-100 h-100 pr-0">
+            </div>
+            <div class="col-md-6   py-5">
+              <div class="card-block py-5  pr-2 pl-0">
+                <h4 class="card-text">Welcome back!</h4>
+                <p class="card-text"><small class="text-muted">please login to access to your spaces Dashboard</small> </p>
+                <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
+                  <div class="form-group m-0">
+                      <small class="text-muted"><label for="username">user name:</label></small>
+                    <input type="text" formControlName="username" id="username" class="form-control my-0" name="username" placeholder="Username..." required="required" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div *ngIf="f.username.errors.required">Username is required</div>
+                    </div>		
+                  </div>
+                  <div class="form-group">
+                      <small class="text-muted"><label for="pass">password:</label></small>
+                    <input type="password"  formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" class="form-control" name="password" placeholder="Password..." required="required">
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                    </div>	
+                  </div> 
+                  <div class="form-group">
+                      <a class="card-text" href="#"><small class="text-muted">forget password ?</small></a>       
+                    <button   [disabled]="loading" (click)="onSubmit()" class="btn standardbtn btn-round-sm mr-0 float-xl-right" >Login</button>
+                    
+                  </div>
+                </form>
+                
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    
+  </section>

@@ -1,0 +1,53 @@
+.modal-actions {		
+    color: #636363;
+    width: 350px;
+}
+.modal-actions .modal-content {
+    padding: 20px;
+    border-radius:7px;
+    border: none;
+ 
+}
+.modal-actions .modal-header {
+    border-bottom: none;   
+    position: relative;
+    justify-content: center;
+}
+.modal-actions h4 {
+    text-align: center;
+    font-size: 26px;
+    margin: 30px 0 -15px;
+}
+
+.modal-actions .form-control, .modal-actions .btn {
+  
+    border-radius: 3px; 
+}
+.modal-actions .close {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}	
+		
+.modal-actions .avatar {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: -70px;
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    z-index: 9;
+    background: #999999;
+    padding: 15px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+.modal-actions .avatar img {
+    width: 100%;
+}
+.modal-actions.modal-dialog {
+    margin-top: 80px;
+}
+
+

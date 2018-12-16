@@ -6,7 +6,8 @@ import { Content } from '@angular/compiler/src/render3/r3_ast';
 import {usersActionService} from '../users.service';
 import { ModalDetails, ActionType } from 'src/app/shared/modalDetails';
 import { AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
-import {AlertService} from '../../alert/alert.service'
+
+import { NotifierService } from 'angular-notifier';
 
 
 
@@ -23,13 +24,18 @@ export class ActionmodalComponent implements OnInit{
    @Input() modalDetails: ModalDetails;
    @ViewChild('content') content: ElementRef
    form: FormGroup;
+   private readonly notifier: NotifierService;
 
   constructor(config: NgbModalConfig,
      private modalService: NgbModal ,
      private usersActionService:usersActionService ,
       private formBuilder: FormBuilder,
     private cdRef: ChangeDetectorRef,
-  private AlertService:AlertService) {
+
+  
+  notifierService: NotifierService ) {
+
+    this.notifier = notifierService;
     // customize default values of modals used by this component tree
      config.backdrop= 'static';
      config.keyboard = false;
@@ -45,11 +51,12 @@ export class ActionmodalComponent implements OnInit{
   this.cdRef.detectChanges();          
   }
 
- 
-
    get f() { return this.form.controls; }
+
    ngOnChanges() {
-    this.cdRef.detectChanges();    
+    this.cdRef.detectChanges(); 
+    
+    // conditions for open modal according to action add or update or delete
      if(this.modalDetails.openModalFlag)
      {
         if(this.modalDetails.actionType == ActionType.edit){
@@ -68,36 +75,41 @@ export class ActionmodalComponent implements OnInit{
   userAction(){
     this.modalService.dismissAll();    
     let formValues;
+    // add function
     if(this.modalDetails.actionType == ActionType.add){
       formValues = {
         email: this.form.controls.email.value,
         password: this.form.controls.password.value
       }
       this.AddNewUser(formValues);
+
+     // edit function
     }else if(this.modalDetails.actionType === ActionType.edit) {
       formValues = {
         name:this.form.controls.name.value,
         job: this.form.controls.jobtitle.value
       }
       this.editSelectedUser(formValues);
+
+      // delete function
     } else if(this.modalDetails.actionType === ActionType.delete) {
       this.deleteSelectedUser();
     }
   }
 
   deleteSelectedUser() {
-    this.usersActionService.DeleteUser(this.modalDetails.userDetails.id).subscribe(res=>{ this.AlertService.success("Deleted successful",true);})
+    this.usersActionService.DeleteUser(this.modalDetails.userDetails.id).subscribe(res=>{ this.notifier.notify( 'success', 'user deleted successfully ' );})
   }
   editSelectedUser(updatedValue) {
 
-        this.usersActionService.EditUser(this.modalDetails.userDetails.id, updatedValue).subscribe(res=>{console.log("edit",res)})
+        this.usersActionService.EditUser(this.modalDetails.userDetails.id, updatedValue).subscribe(res=>{ this.notifier.notify( 'success', 'user updated  successfully ' );})
 
   }
   AddNewUser(sendUser){
  
     this.usersActionService.AddUser(sendUser).subscribe(
-      (res:any)=>console.log("from add new user",res),
-      (error)=> console.log(error)
+      (res:any)=>{  this.notifier.notify( 'success', 'user added successfully ' );},
+      (error)=> {this.notifier.notify("error ",'wrong in process  ');}
     );
   }
 

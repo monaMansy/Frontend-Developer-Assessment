@@ -4,27 +4,25 @@ import { usersActionService} from './users.service';
 import { HttpClient ,HttpClientModule } from '@angular/common/http';
 import { ModalDetails, ActionType } from 'src/app/shared/modalDetails';
 
-
-
 @Component({
   selector: 'app-shoppinglist',
   templateUrl: './userslist.component.html',
   styleUrls: ['./userslist.component.css'],
   providers:[HttpClientModule ,usersActionService]
 })
+
 export class userslistComponent implements OnInit {
   res:any;
   modalDetails:ModalDetails = new ModalDetails();
   messageDetails;
-   
-    users:any = []; // to prevent ngFor to throw while we wait for API to return data
+  users:any = []; // to prevent ngFor to throw while we wait for API to return data
   constructor(private http: HttpClient , private usersActionService:usersActionService) {
 
    }
   
   ngOnInit() {
  
-   this.getUsers();
+   this.getUsers(); // call this function in oninit to load users just when page is opened
     
   }
   public getUsers() {
@@ -41,7 +39,7 @@ export class userslistComponent implements OnInit {
       btnText: 'EDIT',
       userDetails: user
     } as ModalDetails
-    // this.usersActionService.EditUser(user.id).subscribe(res=>{console.log("edit",res)})
+    
   }
 
   onDelete(user){

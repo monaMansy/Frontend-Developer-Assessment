@@ -15,6 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AlertComponent } from './alert/alert.component';
 import { AlertService } from 'src/app/alert/alert.service';
+import { NotifierModule } from 'angular-notifier';
+
+
 
 
 const appRoutes:Routes =[
@@ -35,7 +38,9 @@ const appRoutes:Routes =[
     RouterModule.forRoot( appRoutes),
     NgbModalModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NotifierModule
+
   ],
   entryComponents: [
    

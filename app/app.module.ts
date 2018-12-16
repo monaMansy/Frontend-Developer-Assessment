@@ -13,11 +13,8 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { ActionmodalComponent } from './userslist/actionmodal/actionmodal.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AlertComponent } from './alert/alert.component';
 import { AlertService } from 'src/app/alert/alert.service';
 import { NotifierModule } from 'angular-notifier';
-
-
 
 
 const appRoutes:Routes =[

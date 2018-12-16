@@ -30,7 +30,7 @@ const appRoutes:Routes =[
     AppComponent,
     HeaderComponent,
     userslistComponent,
-    LoginComponent, NavBarComponent, ActionmodalComponent, AlertComponent   
+    LoginComponent, NavBarComponent, ActionmodalComponent   
   ],
   imports: [
     BrowserModule,
@@ -45,7 +45,7 @@ const appRoutes:Routes =[
   entryComponents: [
    
 ],
-  providers: [ AlertService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
